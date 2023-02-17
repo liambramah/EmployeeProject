@@ -8,5 +8,10 @@ public class UserInput {
         String searchedName = scanner.nextLine();
         return searchedName;
     }
+    public void displayPrompt(){
+        System.out.println("Welcome to this program");
+        System.out.println("Please enter the last name of employee you want to search: ");
+    }
+
 
 }
