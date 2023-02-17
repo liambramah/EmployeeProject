@@ -15,7 +15,5 @@ public interface IBinaryTree {
 
     boolean findElement(Employee value);
 
-    Employee getElement(String lastName);
-
-    ArrayList<Employee> getAllElementsOf(String lastName);
+    ArrayList<Employee> getElement(String lastName);
 }

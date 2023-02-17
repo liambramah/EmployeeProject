@@ -123,13 +123,35 @@ public class BinaryTree implements IBinaryTree {
     }
 
     @Override
-    public Employee getElement(String lastName) {
-        return null;
-    }
+    public ArrayList<Employee> getElement(String lastName) {
 
-    @Override
-    public ArrayList<Employee> getAllElementsOf(String lastName) {
-        return null;
+        ArrayList<Employee> employees = new ArrayList<>();
+
+        boolean elementFound = false;
+
+        Node tempNode = currentNode;
+
+        if (lastName.compareTo(currentNode.getValue()) < 0){
+            if(!currentNode.isLeftChildEmpty()){
+                currentNode=currentNode.getLeftChild();
+                employees.addAll(getElement(lastName));
+                elementFound = true;
+            }
+        }
+        currentNode = tempNode;
+        if(lastName.compareTo(currentNode.getValue()) > 0 && !elementFound){
+            if(!currentNode.isRightChildEmpty()){
+                currentNode=currentNode.getRightChild();
+                employees.addAll(getElement(lastName));
+            }
+        }
+
+
+        currentNode = tempNode;
+        if (currentNode.getValue().compareTo(lastName) == 0) {
+            employees.addAll(currentNode.getEmployees());
+        }
+        return employees;
     }
 
     public static void main(String[] args) {
@@ -144,10 +166,8 @@ public class BinaryTree implements IBinaryTree {
         binaryTree.addElement(employee2);
         binaryTree.addElement(employee3);
 
-        System.out.println(binaryTree.getRootElement()+  "\n" + binaryTree.getRoot().getLeftChild().getValue());
-        System.out.println("\n\n");
-        System.out.println(binaryTree.getRoot().getEmployees());
-        System.out.println("\n\n");
-        System.out.println(binaryTree.getRoot().getLeftChild().getEmployees());
+        System.out.println(binaryTree.getElement("Smith"));
+        System.out.println("\n rubbish \n");
+        System.out.println(binaryTree.getElement("Jones"));
     }
 }

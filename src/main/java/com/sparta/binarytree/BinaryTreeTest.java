@@ -1,6 +1,7 @@
 package com.sparta.binarytree;
 
 import com.sparta.employee.Employee;
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
@@ -24,6 +25,11 @@ class BinaryTreeTest {
         binaryTree.addElement(employee1);
         binaryTree.addElement(employee2);
         binaryTree.addElement(employee3);
+
+        Assertions.assertEquals("Smith", binaryTree.getRootElement());
+        Assertions.assertEquals("Jones", binaryTree.root.getLeftChild().getValue());
+        Assertions.assertEquals("John", binaryTree.root.getEmployees().get(0).getFirstName());
+        Assertions.assertEquals( "Jane", binaryTree.root.getEmployees().get(1).getFirstName());
 
     }
 
