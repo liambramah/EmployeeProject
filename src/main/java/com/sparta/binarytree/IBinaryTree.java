@@ -1,6 +1,6 @@
 package com.sparta.binarytree;
 
-import com.sparta.extensions.ChildNotFoundException;
+import com.sparta.binarytree.extensions.ChildNotFoundException;
 
 public interface IBinaryTree {
     int getRootElement();
