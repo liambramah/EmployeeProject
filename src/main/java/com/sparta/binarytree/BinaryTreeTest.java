@@ -33,4 +33,23 @@ class BinaryTreeTest {
 
     }
 
+    @Test
+    @DisplayName("Testing get employees")
+    public void testingGetEmployees() {
+        Employee employee1 = new Employee("1234", new Date(), "John", "Smith",
+                'm', new Date());
+        Employee employee2 = new Employee("1234", new Date(), "Jane", "Smith",
+                'm', new Date());
+        Employee employee3 = new Employee("1234", new Date(), "Thomas", "Jones",
+                'm', new Date());
+        BinaryTree binaryTree = new BinaryTree();
+        binaryTree.addElement(employee1);
+        binaryTree.addElement(employee2);
+        binaryTree.addElement(employee3);
+
+        Assertions.assertEquals("John", binaryTree.getElement("Smith").get(0).getFirstName());
+        Assertions.assertEquals("Jane", binaryTree.getElement("Smith").get(1).getFirstName());
+        Assertions.assertEquals("Thomas", binaryTree.getElement("Jones").get(0).getFirstName());
+    }
+
 }
