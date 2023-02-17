@@ -1,11 +1,9 @@
 package com.sparta.binarytree;
 
-import com.sparta.binarytree.extensions.ChildNotFoundException;
 import com.sparta.employee.Employee;
 
 import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.stream.IntStream;
+import java.util.Date;
 
 public class BinaryTree implements IBinaryTree {
 
@@ -13,10 +11,14 @@ public class BinaryTree implements IBinaryTree {
     Node currentNode;
 
     @Override
-    public Employee getRootElement() {
+    public String getRootElement() {
         currentNode = root;
         return this.root.getValue();
 
+    }
+
+    private Node getRoot() {
+        return this.root;
     }
 
     @Override
@@ -45,13 +47,18 @@ public class BinaryTree implements IBinaryTree {
     public void addElement(Employee element) {
 //if root node does not exist then create it, if it does exist then insert node
         if(root == null){
-            root=new Node(element);
+            root=new Node(element.getLastName());
+            root.addEmployee(element);
             currentNode=root;
+            return;
         }
         boolean elementSet = false;
-        if (element<currentNode.getValue()){
+
+        Node tempNode = currentNode;
+        if (element.getLastName().compareTo(currentNode.getValue()) < 0){
             if(currentNode.isLeftChildEmpty()){
-                currentNode.setLeftChild(new Node(element));
+                currentNode.setLeftChild(new Node(element.getLastName()));
+                currentNode.getLeftChild().addEmployee(element);
             } else {
                 currentNode=currentNode.getLeftChild();
                 addElement(element);
@@ -59,16 +66,23 @@ public class BinaryTree implements IBinaryTree {
             }
         }
 
-        if(element>currentNode.getValue() && !elementSet){
+        currentNode = tempNode;
+
+        if(element.getLastName().compareTo(currentNode.getValue()) > 0 && !elementSet){
             if(currentNode.isRightChildEmpty()){
-                currentNode.setRightChild(new Node(element));
+                currentNode.setRightChild(new Node(element.getLastName()));
+                currentNode.addEmployee(element);
             } else {
                 currentNode=currentNode.getRightChild();
                 addElement(element);
+                elementSet = true;
             }
         }
+        currentNode = tempNode;
 
-        currentNode = root;
+        if (element.getLastName().compareTo(currentNode.getValue()) == 0) {
+            currentNode.addEmployee(element);
+        }
     }
 
     @Override
@@ -81,11 +95,11 @@ public class BinaryTree implements IBinaryTree {
     @Override
     public boolean findElement(Employee value) {
 
-        boolean element = value == currentNode.getValue();
+        boolean element = value.getLastName() == currentNode.getValue();
 
         boolean elementFound = false;
 
-        if (value < currentNode.getValue()){
+        if (value.getLastName().compareTo(currentNode.getValue()) < 0){
             if(currentNode.isLeftChildEmpty()){
                 element = false;
             } else {
@@ -95,7 +109,7 @@ public class BinaryTree implements IBinaryTree {
             }
         }
 
-        if(value>currentNode.getValue() && !elementFound){
+        if(value.getLastName().compareTo(currentNode.getValue()) > 0 && !elementFound){
             if(currentNode.isRightChildEmpty()){
                 element = false;
             } else {
@@ -116,5 +130,24 @@ public class BinaryTree implements IBinaryTree {
     @Override
     public ArrayList<Employee> getAllElementsOf(String lastName) {
         return null;
+    }
+
+    public static void main(String[] args) {
+        Employee employee1 = new Employee("1234", new Date(), "John", "Smith",
+                'm', new Date());
+        Employee employee2 = new Employee("1234", new Date(), "Jane", "Smith",
+                'm', new Date());
+        Employee employee3 = new Employee("1234", new Date(), "Thomas", "Jones",
+                'm', new Date());
+        BinaryTree binaryTree = new BinaryTree();
+        binaryTree.addElement(employee1);
+        binaryTree.addElement(employee2);
+        binaryTree.addElement(employee3);
+
+        System.out.println(binaryTree.getRootElement()+  "\n" + binaryTree.getRoot().getLeftChild().getValue());
+        System.out.println("\n\n");
+        System.out.println(binaryTree.getRoot().getEmployees());
+        System.out.println("\n\n");
+        System.out.println(binaryTree.getRoot().getLeftChild().getEmployees());
     }
 }
