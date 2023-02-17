@@ -28,7 +28,7 @@ public class EmployeeController{
     }
 
     public ArrayList<Employee> searchLastName(String retrieveEmployee){
-        model.retrieveEmployeesFromLastName(retrieveEmployee);
+        return model.retrieveEmployeesFromLastName(retrieveEmployee);
     }
 
     public void run(){
