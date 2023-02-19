@@ -1,6 +1,6 @@
 package com.sparta.binarytree;
+import com.sparta.binarytree.extensions.ChildNotFoundException;
 
-import com.sparta.extensions.ChildNotFoundException;
 
 import java.util.Arrays;
 import java.util.stream.IntStream;
