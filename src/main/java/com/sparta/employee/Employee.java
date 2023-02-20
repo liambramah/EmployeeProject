@@ -62,7 +62,4 @@ public class Employee {
         return employeeAsString;
     }
 
-    public static Date dateFormat(Date date){
-        
-    }
 }
