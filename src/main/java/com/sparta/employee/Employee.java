@@ -57,9 +57,9 @@ public class Employee {
     }
     @Override
     public String toString(){
-        String employeeAsString = "EmployeeID: " + this.getEmployeeNumber() + "\nFirst Name: " + this.getFirstName() + "\nLast Name: " + "\nHire Date:" + this.getHireDate() +
+
+        String employeeAsString = "EmployeeID: " + this.getEmployeeNumber() + "\nFirst Name: " + this.getFirstName() + "\nLast Name: " + this.lastName + "\nHire Date:" + this.getHireDate() +
                 "\nBirth Date: " + this.getBirthDate().toString() + "\nGender: " + this.getGender() + "\n";
         return employeeAsString;
     }
-
 }

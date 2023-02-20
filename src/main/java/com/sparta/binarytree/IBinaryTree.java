@@ -1,12 +1,11 @@
 package com.sparta.binarytree;
 
-import com.sparta.binarytree.extensions.ChildNotFoundException;
 import com.sparta.employee.Employee;
 
 import java.util.ArrayList;
 
 public interface IBinaryTree {
-    Employee getRootElement();
+    String getRootElement();
 
     int getNumberOfElements();
 
@@ -16,7 +15,5 @@ public interface IBinaryTree {
 
     boolean findElement(Employee value);
 
-    Employee getElement(String lastName);
-
-    ArrayList<Employee> getAllElementsOf(String lastName);
+    ArrayList<Employee> getElement(String lastName);
 }
