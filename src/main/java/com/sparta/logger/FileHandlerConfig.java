@@ -8,7 +8,7 @@ import java.util.logging.Logger;
 public class FileHandlerConfig {
     public static void getFileHandler(Logger logger) {
         try {
-            var fileHandler = new FileHandler("src/main/resources/logFile.log", true);
+            var fileHandler = new FileHandler("src/main/resources/logFile.log");
             fileHandler.setLevel(Level.ALL);
             fileHandler.setFormatter(new CustomFormatter());
             logger.addHandler(fileHandler);

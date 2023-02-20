@@ -23,8 +23,9 @@ public class EmployeeController{
 
     public void setUpEmployees(){
 
-        ArrayList<Employee> listOfEmployees = ConvertedEmployeeFactory.getEmployees(2);
+        ArrayList<Employee> listOfEmployees = ConvertedEmployeeFactory.getEmployees(999);
         model.addEmployees(listOfEmployees);
+        System.out.println("Reached this point");
     }
 
     public ArrayList<Employee> searchLastName(String retrieveEmployee){
@@ -35,8 +36,10 @@ public class EmployeeController{
         this.setUpEmployees(); // We want to set this up before the user can do anything
         view.displayPrompt();
         String inputLastName = view.getInput();
-        ArrayList<Employee> chosenName = searchLastName(inputLastName);
-        view.displayOutput(chosenName);
+        ArrayList<Employee> employees = searchLastName(inputLastName);
+        System.out.println("Reached point number 2");
+        System.out.println(employees);
+        view.displayOutput(inputLastName, employees);
     }
 
 
