@@ -25,8 +25,8 @@ public class EmployeeView {
 
    public void displayOutput(String searchedName, ArrayList<Employee> employees) {
        Logger logger = LoggerWrapper.setUpPersonalLogger(Logger.getLogger(this.getClass().getName()));
-        logger.log(Level.INFO, LocalDate.now().toString());
-       logger.log(Level.INFO, " Searched name: " + searchedName + "\n");
+        logger.log(Level.INFO, "Current Date: " + LocalDate.now().toString());
+       logger.log(Level.INFO, "\nSearched name: " + searchedName + "\n\n");
        if (employees.size() == 0) {
            logger.log(Level.INFO, "Last name does not exist in binary tree");
        } else {
