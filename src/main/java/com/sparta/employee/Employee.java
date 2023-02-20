@@ -1,5 +1,6 @@
 package com.sparta.employee;
 
+import java.text.SimpleDateFormat;
 import java.util.Date;
 
 public class Employee {
@@ -57,9 +58,12 @@ public class Employee {
     }
     @Override
     public String toString(){
+        SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
+        String newBirthDate = formatter.format(this.getBirthDate());
+        String newHireDate = formatter.format(this.getHireDate());
 
-        String employeeAsString = "EmployeeID: " + this.getEmployeeNumber() + "\nFirst Name: " + this.getFirstName() + "\nLast Name: " + this.lastName + "\nHire Date:" + this.getHireDate() +
-                "\nBirth Date: " + this.getBirthDate().toString() + "\nGender: " + this.getGender() + "\n";
+        String employeeAsString = "EmployeeID: " + this.getEmployeeNumber() + "\nFirst Name: " + this.getFirstName() + "\nLast Name: " + this.lastName + "\nHire Date: " + newHireDate +
+                "\nBirth Date: " + newBirthDate + "\nGender: " + this.getGender() + "\n" + "\n";
         return employeeAsString;
     }
 }

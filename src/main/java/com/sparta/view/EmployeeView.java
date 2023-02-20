@@ -3,6 +3,7 @@ package com.sparta.view;
 import com.sparta.employee.Employee;
 import com.sparta.logger.LoggerWrapper;
 
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Scanner;
 import java.util.logging.Level;
@@ -24,8 +25,8 @@ public class EmployeeView {
 
    public void displayOutput(String searchedName, ArrayList<Employee> employees) {
        Logger logger = LoggerWrapper.setUpPersonalLogger(Logger.getLogger(this.getClass().getName()));
-
-       logger.log(Level.INFO, "Searched name: " + searchedName);
+        logger.log(Level.INFO, LocalDate.now().toString());
+       logger.log(Level.INFO, " Searched name: " + searchedName + "\n");
        if (employees.size() == 0) {
            logger.log(Level.INFO, "Last name does not exist in binary tree");
        } else {
