@@ -13,10 +13,10 @@ public class EmployeeController{
 
 //    RetrieveEmployeesFromLastName retrieveLastName = new RetrieveEmployeesFromLastName();;
 
-    private Employee model;
+    private Model model;
     private EmployeeView view;
 
-    public EmployeeController(Employee model, EmployeeView view) {
+    public EmployeeController(Model model, EmployeeView view) {
         this.model = model;
         this.view = view;
     }
