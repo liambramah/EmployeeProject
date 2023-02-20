@@ -1,6 +1,7 @@
 package com.sparta.binarytree;
-import com.sparta.binarytree.extensions.ChildNotFoundException;
 
+
+import com.sparta.binarytree.extensions.ChildNotFoundException;
 
 import java.util.Arrays;
 import java.util.stream.IntStream;
@@ -107,7 +108,7 @@ public class BinaryTree implements IBinaryTree {
     }
 
     @Override
-    public int getLeftChild(int element) throws ChildNotFoundException{ // 4-13-17
+    public int getLeftChild(int element) throws ChildNotFoundException { // 4-13-17
         int value = 0;
         Node tempNode = currentNode;
 
