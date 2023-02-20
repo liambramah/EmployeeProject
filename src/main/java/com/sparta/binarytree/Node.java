@@ -2,13 +2,25 @@ package com.sparta.binarytree;
 
 import com.sparta.employee.Employee;
 
+import java.util.ArrayList;
+
 public class Node {
-    private final Employee value;
+    private final String value;
+
+    private ArrayList<Employee> lastNameEmployees = new ArrayList<>();
     private Node leftChild;
     private Node rightChild;
 
-    public Node(Employee value) {
+    public Node(String value) {
         this.value = value;
+    }
+
+    public void addEmployee(Employee employee) {
+        lastNameEmployees.add(employee);
+    }
+
+    public ArrayList<Employee> getEmployees() {
+        return lastNameEmployees;
     }
 
     public Node getLeftChild() {
@@ -27,7 +39,7 @@ public class Node {
         this.rightChild = rightChild;
     }
 
-    public Employee getValue() {
+    public String getValue() {
         return value;
     }
 
