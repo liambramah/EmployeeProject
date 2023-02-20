@@ -1,4 +1,5 @@
 20230220
+<<<<<<< HEAD
 Searched name: Hafner
 20230220
 EmployeeID: 380387
@@ -15,4 +16,14 @@ Last Name: Hellman
 Hire Date:Fri Jun 08 00:00:00 BST 2001
 Birth Date: Sun Sep 11 00:00:00 BST 1966
 Gender: F
+=======
+Searched name: Harper
+20230220
+EmployeeID: 801312
+First Name: Refugio
+Last Name: Harper
+Hire Date:Sat Apr 05 00:00:00 BST 2008
+Birth Date: Fri Jan 07 00:00:00 GMT 1983
+Gender: M
+>>>>>>> 1ed488add75d8f8b17712f17d3148733f2212021
 

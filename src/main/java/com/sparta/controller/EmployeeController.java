@@ -37,7 +37,6 @@ public class EmployeeController{
         view.displayPrompt();
         String inputLastName = view.getInput();
         ArrayList<Employee> employees = searchLastName(inputLastName);
-        System.out.println("Reached point number 2");
         System.out.println(employees);
         view.displayOutput(inputLastName, employees);
     }
