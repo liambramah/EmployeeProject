@@ -71,7 +71,7 @@ public class BinaryTree implements IBinaryTree {
         if(element.getLastName().compareTo(currentNode.getValue()) > 0 && !elementSet){
             if(currentNode.isRightChildEmpty()){
                 currentNode.setRightChild(new Node(element.getLastName()));
-                currentNode.addEmployee(element);
+                currentNode.getRightChild().addEmployee(element);
             } else {
                 currentNode=currentNode.getRightChild();
                 addElement(element);
@@ -83,6 +83,8 @@ public class BinaryTree implements IBinaryTree {
         if (element.getLastName().compareTo(currentNode.getValue()) == 0) {
             currentNode.addEmployee(element);
         }
+
+        currentNode = tempNode;
     }
 
     @Override
