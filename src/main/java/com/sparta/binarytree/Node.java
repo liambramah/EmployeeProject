@@ -1,11 +1,13 @@
 package com.sparta.binarytree;
 
+import com.sparta.employee.Employee;
+
 public class Node {
-    private final int value;
+    private final Employee value;
     private Node leftChild;
     private Node rightChild;
 
-    public Node(int value) {
+    public Node(Employee value) {
         this.value = value;
     }
 
@@ -25,7 +27,7 @@ public class Node {
         this.rightChild = rightChild;
     }
 
-    public int getValue() {
+    public Employee getValue() {
         return value;
     }
 

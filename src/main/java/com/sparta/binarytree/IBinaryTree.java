@@ -1,23 +1,22 @@
 package com.sparta.binarytree;
 
 import com.sparta.binarytree.extensions.ChildNotFoundException;
+import com.sparta.employee.Employee;
+
+import java.util.ArrayList;
 
 public interface IBinaryTree {
-    int getRootElement();
+    Employee getRootElement();
 
     int getNumberOfElements();
 
-    void addElement(int element);
+    void addElement(Employee element);
 
-    void addElements(int[] elements);
+    void addElements(ArrayList<Employee> elements);
 
-    boolean findElement(int value);
+    boolean findElement(Employee value);
 
-    int getLeftChild(int element) throws ChildNotFoundException;
+    Employee getElement(String lastName);
 
-    int getRightChild(int element) throws ChildNotFoundException;
-
-    int[] getSortedTreeAsc();
-
-    int[] getSortedTreeDesc();
+    ArrayList<Employee> getAllElementsOf(String lastName);
 }
